@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class HighlightedElements_MattFigueroa_BCS11 {
+public static void main(String[] args) {
+int X, I, J, Sum1=0, Sum2=0, Sum3=0, Sum4=0;
+int TotalSum=0;
+Scanner DE=new Scanner(System.in);   
+System.out.print("Enter Value For n: ");
+X = DE.nextInt();
+int Array[][] = new int[X][X];   
+System.out.print("Enter Elements For Array: "); 
+for (I = 0; I < X; I++)    
+for (J = 0; J < X; J++)   
+Array[I][J] = DE.nextInt();
+System.out.println("The Array:");   
+for (I = 0; I < X; I++)   
+{   
+for (J = 0; J < X; J++) 
+System.out.print(Array[I][J] + " ");
+System.out.println(); 
+} 
+for (int i = 0; i < X; i++) {
+for (int j = 0; j < X; j++) {
+if (i + j < X - 1){
+if (i < j && i != j && i + j > 0)
+Sum1 += Array[i][j];
+else if (i != j)
+Sum2 += Array[i][j];
+}
+else {
+if (i > j && i + j != X - 1)
+Sum3 += Array[i][j];
+else {
+if (i + j != X - 1 && i != j)
+Sum4 += Array[i][j];
+}
+}
+}
+}
+TotalSum = Sum1 + Sum2 + Sum3 + Sum4;
+System.out.println("Sum of alternate elements : " + TotalSum);
+}        
+}
